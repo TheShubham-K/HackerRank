@@ -1,0 +1,7 @@
+a = int(input())
+b = int(input())
+m = int(input())
+n = int(input())
+s = (a**b)
+r = (m**n)
+print(s + r)
