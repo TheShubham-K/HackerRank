@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1592560871 source:c:\users\dell\onedrive\desktop\project\icpcpractice\hash_table_ransom_note\main.cpp
+	<iostream>
+	<cmath>
+	<vector>
+	<algorithm>
+	<cstdio>
+
