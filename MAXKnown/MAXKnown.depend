@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1592463161 source:c:\users\dell\onedrive\desktop\project\icpcpractice\maxknown\main.cpp
+	<iostream>
+	<cmath>
+	<cstdio>
+	<vector>
+	<algorithm>
+
