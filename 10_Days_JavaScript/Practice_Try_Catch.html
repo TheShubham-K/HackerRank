@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        a = 1;
+        b = 2;
+        c = 3;
+        // document.write(d); //causes a fatal error
+
+
+
+        try {
+            function getVarValue(anything) {
+                document.write(anything + '<br/><br/>');
+            }
+            getVarvalue(d);
+        } catch (ex) {
+            document.write(ex + '<br/><br/>');
+        }
+
+        document.write(10 / 0);
+        try {
+            function divide(numer, dnom) {
+                if (denom == 0) {
+                    throw new Error('Cannot Divide by 0');
+                }
+                document.write(numer / denom);
+            }
+            divide(10, 0);
+        } catch (ex) {
+            document.write(ex + '<br/><br/>');
+        }
+
+        s = ['Tom', 'tom@gmail.com', 'Jennery', 'Jennery@gmail.com', 'Sally'];
+        var i = 0;
+        names = [];
+        e = []; //error msg go in here.
+        error_count = 0;
+        while (i < s.length) {
+            try {
+                result = s[i].search(/@/); // regular Expression.
+                if (result == -1) {
+                    names.push(s[i]);
+                } else {
+                    throw new Error(s[i] + ' is not a valid name');
+                }
+            } catch (ex) {
+                e.push(ex);
+                error_count++
+            } finally {
+                i++; //this happens as long as try was executed 
+            }
+        }
+        document.write(names + '<br/><br/>');
+        document.write('An Exceptions is caught ' + e.length + 'time(s) <br/><br/>');
+        i = 0;
+        while (i < e.length) {
+            document.write(e[i] + '<br/>');
+            i++;
+        }
+        document.write("<br/><br/> End of the Document!")
+    </script>
+</body>
+
+</html>
