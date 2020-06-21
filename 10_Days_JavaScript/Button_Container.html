@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<style>
+    #btns {
+        width: 75%;
+        position: relative;
+    }
+
+    .buttonClass {
+        width: 30%;
+        height: 48px;
+        font-size: 24px;
+    }
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <br><br><br><br><br>
+    <center>
+        <div id="btns" class="buttonContainer">
+            <div>
+                <button id="btn1" class="buttonClass">1</button>
+                <button id="btn2" class="buttonClass">2</button>
+                <button id="btn3" class="buttonClass">3</button>
+
+            </div>
+            <div>
+                <button id="btn4" class="buttonClass">4</button>
+                <button id="btn5" class="buttonClass">5</button>
+                <button id="btn6" class="buttonClass">6</button>
+            </div>
+            <div>
+                <button id="btn7" class="buttonClass">7</button>
+                <button id="btn8" class="buttonClass">8</button>
+                <button id="btn9" class="buttonClass">9</button>
+            </div>
+
+        </div>
+
+    </center>
+
+    <script>
+        class Rotator {
+            constructor(values) {
+                this.values = values;
+            }
+            rotations() {
+                this.values.unshift(this.values.pop());
+            }
+            round() {
+                this.rotations();
+                this.render();
+            }
+            render() {
+                const [btn1, btn2, btn3, btn6, btn9, btn8, btn7, btn4] = this.values;
+                const hashTable = {
+                    btn1,
+                    btn2,
+                    btn3,
+                    btn6,
+                    btn9,
+                    btn8,
+                    btn7,
+                    btn4
+                };
+                for (const key in hashTable) {
+                    document.getElementById(key).innerHTML = hashTable[key];
+                }
+            }
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            const rotator = new Rotator([1, 2, 3, 6, 9, 8, 7, 4]);
+            rotator.render();
+            document.getElementById('btn5').addEventListener('click', () => {
+                rotator.round();
+            });
+        });
+    </script>
+</body>
+
+</html>
