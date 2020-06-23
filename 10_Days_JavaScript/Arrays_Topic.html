@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var a = ['c', 'a', 'd', 'b', 'aa'];
+        var b = [9, 2, 13, 7, 1, 12, 123];
+
+        // Sort in descending lexicographical order using a compare function
+        a.sort(function (x, y) {
+            return x < y;
+        });
+        b.sort(function (x, y) {
+            return x < y;
+        });
+
+        console.log('a:', a);
+        console.log('b:', b);
+
+
+
+        var a = ['c', 'a', 'd', 'b', 'aa'];
+
+        // Sort in descending lexicographical order using a compare arrow function
+        a.sort((x, y) => x < y);
+
+        console.log('a:', a);
+
+        var a = ['first', 'second', 'third', 'fourth'];
+
+        for (let e of a) {
+            console.log('e:', e);
+        }
+
+        // Answer
+
+        'use strict';
+
+        process.stdin.resume();
+        process.stdin.setEncoding('utf-8');
+
+        let inputString = '';
+        let currentLine = 0;
+
+        process.stdin.on('data', inputStdin => {
+            inputString += inputStdin;
+        });
+
+        process.stdin.on('end', _ => {
+            inputString = inputString.trim().split('\n').map(string => {
+                return string.trim();
+            });
+
+            main();
+        });
+
+        function readLine() {
+            return inputString[currentLine++];
+        }
+
+        /**
+         *   Return the second largest number in the array.
+         *   @param {Number[]} nums - An array of numbers.
+         *   @return {Number} The second largest number in the array.
+         **/
+        function getSecondLargest(nums) {
+            // Complete the function
+            var sorted_array = nums.sort(function (a, b) {
+                return a - b;
+            });
+            var unique_sorted_array = sorted_array.filter(function (elem, index, self) {
+                return index === self.indexOf(elem);
+            })
+            return unique_sorted_array[unique_sorted_array.length - 2];
+        }
+    </script>
+</body>
+
+</html>
