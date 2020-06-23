@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const arr = ['a', 'b', 'c', 'd'];
+
+        // 'i' is the index
+        for (let i = 0; i < arr.length; i++) {
+            console.log('arr[' + i + ']: ' + arr[i]);
+        }
+
+        const o = {
+            a: 1,
+            b: 2,
+            c: 3,
+            d: 4
+        };
+
+        console.log('property: value');
+        // 'p' is the property
+        for (p in o) {
+            console.log(p + ': ' + o[p]);
+        }
+
+        const arr = ['a', 'b', 'c', 'd'];
+
+        arr.forEach((value, index, array) => {
+            console.log('index', index, 'has a value of', value,
+                'which correlates to array[' + index + ']:', array[index]);
+        });
+
+        arr.forEach((value, index) => {
+            console.log('index', index, 'has a value of', value);
+        });
+
+        arr.forEach((value) => {
+            console.log('value:', value);
+        });
+
+
+
+        // Answer
+        'use strict';
+
+        process.stdin.resume();
+        process.stdin.setEncoding('utf-8');
+
+        let inputString = '';
+        let currentLine = 0;
+
+        process.stdin.on('data', inputStdin => {
+            inputString += inputStdin;
+        });
+
+        process.stdin.on('end', _ => {
+            inputString = inputString.trim().split('\n').map(string => {
+                return string.trim();
+            });
+
+            main();
+        });
+
+        function readLine() {
+            return inputString[currentLine++];
+        }
+
+        /*
+         * Return a count of the total number of objects 'o' satisfying o.x == o.y.
+         * 
+         * Parameter(s):
+         * objects: an array of objects with integer properties 'x' and 'y'
+         */
+        function getCount(objects) {
+            return objects.filter(function (o) {
+                return o.x == o.y
+            }).length;
+        }
+
+
+        function main() {
+            const n = +(readLine());
+            let objects = [];
+
+            for (let i = 0; i < n; i++) {
+                const [a, b] = readLine().split(' ');
+
+                objects.push({
+                    x: +(a),
+                    y: +(b)
+                });
+            }
+
+            console.log(getCount(objects));
+        }
+    </script>
+</body>
+
+</html>
