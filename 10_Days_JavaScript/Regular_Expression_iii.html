@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        process.stdin.resume();
+        process.stdin.setEncoding('utf-8');
+
+        let inputString = '';
+        let currentLine = 0;
+
+        process.stdin.on('data', inputStdin => {
+            inputString += inputStdin;
+        });
+
+        process.stdin.on('end', _ => {
+            inputString = inputString.trim().split('\n').map(string => {
+                return string.trim();
+            });
+
+            main();
+        });
+
+        function readLine() {
+            return inputString[currentLine++];
+        }
+
+        function regexVar() {
+            /*
+             * Declare a RegExp object variable named 're'
+             * It must match ALL occurrences of numbers in a string.
+             */
+            var re = new RegExp('\\d+', 'g');
+
+            /*
+             * Do not remove the return statement
+             */
+            return re;
+        }
+    </script>
+</body>
+
+</html>
